@@ -107,7 +107,7 @@ matplotlib>=3.5.0
 ### 1. Clonar o descargar el repositorio
 
 ```bash
-git clone <url-del-repositorio>
+git clone <[url-del-repositorio](https://github.com/Elias200025/HMI-PAROL6/tree/main)>
 cd ACOFI
 ```
 
