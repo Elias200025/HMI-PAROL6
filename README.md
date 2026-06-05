@@ -28,30 +28,55 @@ Esta aplicación permite simular, controlar y analizar el robot PAROL6 en tiempo
 ## Estructura del Proyecto
 
 ```
-ACOFI/
-├── main.py                    # Punto de entrada de la aplicación
-├── PAROL6.urdf                # Descripción URDF del robot
-├── brazo-robotico.ico         # Ícono de la aplicación
-├── Logo_UTP.png               # Logo Universidad Tecnológica de Pereira
-├── gseea.png                  # Logo grupo GIGSEEA
-├── requirements.txt           # Dependencias Python
-├── meshes/                    # Mallas STL del robot (base + 6 eslabones)
-├── robot/
-│   ├── kinematics.py          # Cinemática directa (transformadas URDF/DH)
-│   └── simulation.py          # Simulación PyBullet (física, cámara)
+HMI-PAROL6/
+├── main.py                    # Punto de entrada principal para ejecutar la HMI
+├── utils.py                   # Funciones utilitarias (manejo de recursos, iconos y rutas)
+├── PAROL6.urdf                # Archivo de descripción estructural y cinemática del robot
+├── README.md                  # Documentación y guía del proyecto para el usuario en GitHub
+├── requirements.txt           # Lista de librerías y dependencias necesarias para el entorno
+├── HMI_PAROL6.spec            # Especificaciones de empaquetado para generar el ejecutable (.exe)
+├── Manual_HMI_PAROL6.pdf      # Manual de usuario oficial enlazado a la nube
+├── brazo-robotico.ico         # Icono personalizado de la interfaz de usuario
+├── Logo_UTP.png               # Logotipo institucional de la Universidad Tecnológica de Pereira
+├── gseea.png                  # Logotipo del grupo de investigación GIGSEEA
+│
 ├── control/
-│   └── controller.py          # Controlador de articulaciones (Manual / Auto)
-├── trajectories/
-│   └── generator.py           # Generador e interpolador de trayectorias
-├── visualization/
-│   ├── canvas3d.py            # Canvas 3D Matplotlib (trayectoria TCP)
-│   └── wireframe.py           # Reconstrucción analítica wireframe
+│   ├── __init__.py            # Inicializador del módulo de control
+│   └── controller.py          # Controlador de articulaciones en modos Manual y Automático
+│
+├── meshes/
+│   ├── base_link.STL          # Malla tridimensional de la estructura base del robot
+│   ├── L1.STL                 # Malla 3D del Eslabón 1 (Eje articular 1)
+│   ├── L2.STL                 # Malla 3D del Eslabón 2 (Eje articular 2)
+│   ├── L3.STL                 # Malla 3D del Eslabón 3 (Eje articular 3)
+│   ├── L4.STL                 # Malla 3D del Eslabón 4 (Eje articular 4)
+│   ├── L5.STL                 # Malla 3D del Eslabón 5 (Eje articular 5)
+│   └── L6.STL                 # Malla 3D del Eslabón 6 (Eje articular 6 - TCP)
+│
 ├── reports/
-│   └── pdf_report.py          # Generador de reportes PDF (HTML+Qt)
-└── ui/
-    ├── main_window.py         # Ventana principal y lógica de integración
-    ├── left_panel.py          # Panel izquierdo (sliders, pose manual, logos)
-    └── right_panel.py         # Panel derecho (trayectorias, matrices, gráfica)
+│   ├── __init__.py            # Inicializador del módulo de reportes
+│   └── pdf_report.py          # Generador de reportes técnicos con datos cinemáticos en PDF
+│
+├── robot/
+│   ├── __init__.py            # Inicializador del módulo del robot
+│   ├── kinematics.py          # Algoritmos y transformaciones de cinemática directa e inversa
+│   └── simulation.py          # Simulación del entorno físico y visualización con PyBullet
+│
+├── trajectories/
+│   ├── __init__.py            # Inicializador del módulo de trayectorias
+│   └── generator.py           # Planificación, cálculo e interpolación de trayectorias
+│
+├── ui/
+│   ├── __init__.py            # Inicializador del módulo de interfaz gráfica
+│   ├── left_panel.py          # Panel izquierdo (control articular, sliders y logos)
+│   ├── main_window.py         # Ventana principal que acopla todos los componentes de la HMI
+│   └── right_panel.py         # Panel derecho (monitoreo de matrices, gráficas y control automático)
+│
+└── visualization/
+    ├── __init__.py            # Inicializador del módulo de visualización
+    ├── canvas3d.py            # Lienzo 3D integrado de Matplotlib para rastreo del espacio de trabajo
+    ├── visua.py               # Módulo complementario de apoyo para el renderizado visual
+    └── wireframe.py           # Renderizado geométrico analítico del esqueleto del manipulador
 ```
 
 ---
