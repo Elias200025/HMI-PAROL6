@@ -136,7 +136,7 @@ python main.py
 
 Si dispone del archivo `HMI_PAROL6.exe`, simplemente ejecútelo con doble clic. No requiere instalación de Python ni librerías adicionales.
 
-> **Nota**: El ejecutable debe estar en la misma carpeta que los archivos `PAROL6.urdf`, `Logo_UTP.png`, `gseea.png` y la carpeta `meshes/`.
+> **Nota**: El ejecutable debe estar en una misma carpeta junto con la carpeta `_internal`.
 
 ---
 
